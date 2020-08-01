@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "/home/nachoaz/.virtualenvs/mova-aiva/bin/python",
+    // "python.venvPath": "~/.virtualenvs",
+    "python.venvFolders" :[
+        "envs",
+        ".pyenv",
+        ".direnv",
+        ".virtualenvs"
+    ],
+}

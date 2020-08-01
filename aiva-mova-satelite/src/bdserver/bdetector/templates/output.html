@@ -1,0 +1,80 @@
+{% load static %} <!-- Cargamos los archivos estaticos -->
+<!DOCTYPE html>
+<html lang="en" class="js">
+    <head>
+        <title>BDETECTOR</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" type="image/png" href='{% static "img/build_icon.jpg"%}' sizes="16x16">
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'css/output.css' %}">
+        <link rel="stylesheet" href="{% static 'css/cocoen.min.css' %}">
+        <script src='{% static "js/cocoen.min.js"%}'></script>
+
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!-- JAVASCRIPT -->
+    </head>
+<body>
+
+<div class="container">
+    <div class="row text-center">
+        <h2>El resultado de la red es el siguiente:</h2>
+    </div>
+    <hr>
+    <div class="row row-margin-bottom">
+        <div class="col-md-12 no-padding lib-item" data-category="view">
+            <div class="lib-panel">
+                <div class="row box-shadow">
+                    <div class="col-md-6 cocoen">
+                            <img style="width:100%" src='{{image}}' alt="">
+                            <img style="width:100%" src='{{seg_img}}' alt="">
+                            
+                            <script>
+                                new Cocoen(document.querySelector('.cocoen'));
+                            </script>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="lib-row lib-header">
+                            <u><strong>Características de la zona:</strong></u> {{ image.name }}
+                        </div>
+                        <div class="data lib-row lib-desc">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Resultados ofrecidos por la red:</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Superficie edificada (%):</th>
+                                        <td>{{ data.building_area|floatformat:"2"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Superficie no edificada (%):</th>
+                                        <td>{{ data.not_building_area|floatformat:"2"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Nº de edificios:</th>
+                                        <td>{{ data.buldings_number }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><a href="{{ data_file }}" target="_blank">Descargar datos (json)</a></th>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="/" class="btn btn-success"><strong>Volver a cargar otra imagen</strong></a>
+    </div>
+</div>
+
+</body>
+</html>

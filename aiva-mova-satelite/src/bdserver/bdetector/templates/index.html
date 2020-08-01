@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BDETECTOR</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" type="image/png" href='{% static "img/build_icon.jpg"%}' sizes="16x40">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src='{% static "js/bootstrap.min.js"%}'></script> 
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Aniamte CSS -->
+        <link rel="stylesheet" type="text/css" href='{% static "css/loader.css" %}'>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+        <!-- JAVASCRIPT -->
+        <script src='{% static "js/upload.js"%}'></script>        
+    </head>
+
+<body class="background">
+    
+<!-- TÍTULO -->
+<div class="text-center">
+    <img src="{% static 'img/title.png' %}" alt="Smiley face" height="100" width="500">
+    <!-- INFO -->
+    <nav role="navigation">
+        <h2><a href="https://github.com/igarag/aiva-mova-satelite" target="_blank">Enlace a Github</a></h2>
+    </nav>
+</div>
+
+<!-- FORMULARIO -->
+<form method="post" action="/" enctype="multipart/form-data" class="box has-advancaed-upload">
+{% csrf_token %}
+<div class="file-upload">
+    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Añadir imagen</button>
+
+    <div class="image-upload-wrap">
+        <input class="file-upload-input" type='file' name="docfile" onchange="readURL(this);" accept="image/*" />
+        <div class="drag-text">
+            <h3>Arrastra y suelta o clicka para agregar una imagen.</h3>
+        </div>
+    </div>
+    <div class="file-upload-content">
+        <h3>¡Imagen Cargada con éxito!</h3>
+        <div class="image-title-wrap">
+            <button type="button" onclick="removeUpload()" class="remove-image">Eliminar <span class="image-title">Subir imagen</span></button>
+        </div>
+        </div>
+        </br>
+        <button type="submit" onclick="$('#loader').removeClass('loaded')" class="file-upload-btn">Analizar imagen</button>
+    </div>
+</form>
+
+<!-- FOOTER -->
+<footer class="col-md-12 text-center">
+    <p><strong>MOVA - Aplicaciones Industriales - Ignacio Arranz y Carlos Rodríguez</strong></p>
+</footer>
+
+<!-- Animación de carga de la aplicación -->
+<div id="loader"> 
+    <div id="icon_loader" class="col-xs-4 col-xs-offset-4">
+        <img id="logo" class="img-responsive animated flipOutY" src="{% static 'img/loading_icon.gif' %}" alt="" width="100%">
+    </div>
+    <script>
+        $(document).ready(function(){
+            document.getElementById("loader").className = "loaded"
+        });
+    </script>
+</div>
+
+</body>
+</htm/>
