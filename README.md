@@ -8,4 +8,4 @@ Projects developed during the university.
 ## Computer vision master
 
 - [Vision in robotics](https://igarag.github.io/mova-vision-robotica/) (follow line and 3D reconstruction).
-- Industrial applications in artificial vision (road segmentation).
+- Industrial applications in artificial vision (road segmentation). Proyecto para la asignatura de Aplicaciones Industriales y Comerciales del Máster Oficial en Visión Artificial
